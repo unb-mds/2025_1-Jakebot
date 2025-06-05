@@ -68,6 +68,4 @@ processar_csv_para_json("query_result_2025-04-28T13_17_30.156542Z.csv", "comenta
 ]
 ```
 
-## 🧑‍💻 Autor
 
-Este script foi desenvolvido como parte de um projeto acadêmico para a disciplina **Métodos de Desenvolvimento de Software**, com foco na análise de sentimentos em comentários da plataforma Brasil Participativo.
