@@ -30,11 +30,12 @@ A proposta deste projeto é **coletar, classificar e visualizar** os sentimentos
 
 ## 👥 Equipe
 
-- Artur Alves Fernandes — Design e Frontend (Jekyll)
+- [Artur Alves Fernandes] — Design e Frontend (Jekyll)
 - [] — Backend e coleta de dados
 - [] — Análise de sentimentos com NLP
 - [] — Documentação e testes
-
+- [] —
+- [] —
 ---
 
 ## 📈 Acompanhe o Projeto
