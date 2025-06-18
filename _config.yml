@@ -18,21 +18,23 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Meu blog
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/2025_1-Jakebot" # the subpath of your site, e.g. /blog
-url: "https://auslogyc.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+title: Brasil Participativo - Análise de Sentimentos
+email: contato@example.com
+description: >-
+  Projeto desenvolvido na disciplina de Métodos de Desenvolvimento de Software (MDS) da Universidade de Brasília - FGA.
+  Este blog apresenta o progresso, os aprendizados e os resultados da ferramenta de análise de sentimentos aplicada à plataforma Brasil Participativo.
+
+baseurl: "/2025_1-Jakebot" # não altere isso, é o nome do repositório
+url: "https://unb-mds.github.io" # se o GitHub Pages for da organização do grupo
+
+twitter_username: ""
+github_username: unb-mds
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
