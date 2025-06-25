@@ -1,0 +1,73 @@
+name: CI/CD Pipeline
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build_jekyll:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.x'
+        bundler-cache: true
+
+    - name: Build Jekyll site
+      run: |
+        bundle install
+        bundle exec jekyll build
+
+    - name: Deploy Jekyll to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
+        # The baseurl in _config.yml is '/2025_1-Jakebot', so we need to publish to a subdirectory
+        # This action automatically handles the baseurl if the publish_dir is correct.
+
+  build_and_test_django:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run Django tests
+      run: |
+        cd backend
+        python manage.py test
+
+  deploy_django:
+    runs-on: ubuntu-latest
+    needs: build_and_test_django
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Deploy Django (Placeholder)
+      run: |
+        echo "Adicione aqui os comandos de deploy do Django. Ex: Heroku, AWS Elastic Beanstalk, etc."
+        echo "Para Heroku, você pode usar: heroku login && git push heroku main"
+        echo "Lembre-se de configurar as variáveis de ambiente e o Procfile, se necessário."
+
