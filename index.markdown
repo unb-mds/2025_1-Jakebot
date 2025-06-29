@@ -102,7 +102,7 @@ title: Início
   <h2 id="colaboradores">🤝 Colaboradores</h2>
   <ul>
     <li><strong>Artur Alves Fernandes</strong> — Frontend (Blog)</li>
-    <li><strong>Sabrina</strong> — Backend/ML</li>
+    <li><strong>(...)</strong> — Backend/ML</li>
     <li>Demais membros do Squad 08</li>
   </ul>
 
