@@ -66,6 +66,8 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 
 ---
 
+-[Link do Blog](https://unb-mds.github.io/2025_1-Jakebot/about/).
+
 ## 📬 Contato
 
 Em caso de dúvidas ou sugestões, entre em contato com os membros da equipe ou abra uma issue neste repositório.
