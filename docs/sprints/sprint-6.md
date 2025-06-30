@@ -1,4 +1,4 @@
-# Sprint N  
+# Sprint 6  
 **Período:** 04/06/2025
 
 ## Descrição  
