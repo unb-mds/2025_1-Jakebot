@@ -1,4 +1,4 @@
-# Sprint N  
+# Sprint 7  
 **Período:** 11/06/2025
 
 ## Descrição  
