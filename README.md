@@ -41,7 +41,7 @@ Projeto desenvolvido como parte da disciplina **Métodos e Desenvolvimento de So
 - GraphQL
 - Modelo pré-treinado de NLP (ex: BERT, DistilBERT)
 - Figma (para prototipação do design)
-- Jason
+- GitHub Pages 
 
 ---
 
