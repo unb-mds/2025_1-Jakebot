@@ -50,7 +50,10 @@ Projeto desenvolvido como parte da disciplina **Métodos e Desenvolvimento de So
 🟡 Sprint 8 finalizada  
 ✅ Configuração do ambiente  
 ✅ Teste da API  
-✅ Seleção do modelo de ML  
+✅ Seleção do modelo de ML
+✅ criação do bot de tranformação do csv em jason
+✅ 
+🚧 criando o bot de sentimentos (Classifica os comentários em positivo, neutro ou negativo)
 🚧 Prototipação da interface (em andamento)
 
 ---
