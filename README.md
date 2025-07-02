@@ -41,12 +41,13 @@ Projeto desenvolvido como parte da disciplina **Métodos e Desenvolvimento de So
 - GraphQL
 - Modelo pré-treinado de NLP (ex: BERT, DistilBERT)
 - Figma (para prototipação do design)
+- Jason
 
 ---
 
 ## 📌 Status do Projeto
 
-🟡 Sprint 0 finalizada  
+🟡 Sprint 8 finalizada  
 ✅ Configuração do ambiente  
 ✅ Teste da API  
 ✅ Seleção do modelo de ML  
