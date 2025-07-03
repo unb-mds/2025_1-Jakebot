@@ -1,3 +1,4 @@
+import "./index.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { LogoBar } from "./components/LogoBar";

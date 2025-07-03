@@ -17,7 +17,7 @@ export function SearchBar({ onSearch }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Buscar Comentário"
-        className="flex-1 px-4 py-3 border border-gray-300 rounded-l-full bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 px-4 py-3 border border-red-600 rounded-l-full bg-red-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <button
         type="submit"
