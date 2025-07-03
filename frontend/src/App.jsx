@@ -29,7 +29,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-[#F9F9F9] text-gray-900">
       <LogoBar />
       <NavBar />
       <div className="max-w-7xl mx-auto px-4 mt-6">

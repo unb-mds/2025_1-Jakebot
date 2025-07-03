@@ -11,12 +11,12 @@ const items = [
 
 export function NavBar() {
   return (
-    <nav className="bg-navbar/20 py-4">
-      <div className="max-w-7xl mx-auto flex gap-6 justify-center px-4 py-2 items-start">
+    <nav className="bg-[#F2F2F2] py-4 drop-shadow-md">
+      <div className="max-w-7xl mx-auto flex gap-12 justify-center px-4 py-2 items-start">
         {items.map(({ title, subtitle }) => (
           <button
             key={title + subtitle}
-            className="flex items-center bg-white hover:bg-gray-100 px-4 py-3 rounded-xl shadow-lg transition min-w-[270px] text-left"
+            className="flex items-center bg-white hover:bg-gray-100 px-3 py-4 rounded-lg drop-shadow-lg transition min-w-[220px] text-left"
           >
             <span className="flex items-center justify-center rounded-full border-2 border-navbar w-12 aspect-square mr-4">
               <ArrowRightIcon className="h-6 w-6 text-navbar" />

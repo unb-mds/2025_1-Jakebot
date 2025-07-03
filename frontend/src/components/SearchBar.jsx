@@ -10,20 +10,20 @@ export function SearchBar({ onSearch }) {
         e.preventDefault();
         if (query.trim()) onSearch(query.trim());
       }}
-      className="flex"
+      className="flex items-center bg-white px-6 py-3 rounded-xl drop-shadow-lg content-around gap-20"
     >
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Buscar Comentário"
-        className="flex-1 px-4 py-3 border border-red-600 rounded-l-full bg-red-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 px-4 py-3 border rounded-xl bg-[#F2F2F2] shadow-sm focus:outline-none focus:ring-1 focus:ring-[#2864AE] text-[#2864AE]"
       />
-      <button
-        type="submit"
-        className="bg-blue-600 hover:bg-blue-700 px-5 rounded-r-full flex items-center justify-center shadow-md"
-      >
-        <ArrowRightIcon className="h-6 w-6 text-white" />
+      <button type="submit"
+        className="text-left">
+        <span className="bg-[#2864AE] hover:bg-[#1f4e86] flex items-center justify-center rounded-full border-none w-12 aspect-square mr-4">
+          <ArrowRightIcon className="h-7 w-7 text-white" />
+        </span>
       </button>
     </form>
   );
