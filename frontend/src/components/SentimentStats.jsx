@@ -1,47 +1,82 @@
 import React from "react";
-import { PieChart, Pie, Cell, Legend } from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
 
+/**
+ * Componente que exibe um gráfico tipo donut, barra de proporções
+ * e cards com valores e percentuais para Positivos e Negativos.
+ * Props:
+ *  - positivos: número de comentários positivos
+ *  - negativos: número de comentários negativos
+ */
 export function SentimentStats({ positivos, negativos }) {
+  // Dados apenas de positivos e negativos com cores definidas
   const data = [
-    { name: "Positivos", value: positivos },
-    { name: "Negativos", value: negativos },
+    { name: "Positivos", value: positivos, color: "#4ade80" },
+    { name: "Negativos", value: negativos, color: "#f87171" },
   ];
 
+  const total = positivos + negativos || 1;
+
   return (
-    <div className="grid grid-cols-2 gap-6">
-      {/* Gráfico de Pizza */}
-      <div className="bg-white p-4 rounded-lg shadow flex justify-center">
-        <PieChart width={200} height={200}>
+    <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow ">
+      <span className="text-[#4B6272] text-lg font-bold">Comentários</span>
+      <div className="flex justify-center">
+        <PieChart width={300} height={300}>
           <Pie
             data={data}
             dataKey="value"
-            nameKey="name"
             cx="50%"
             cy="50%"
-            outerRadius={80}
-            label
+            innerRadius={80}
+            outerRadius={120}
+            paddingAngle={2}
           >
-            <Cell fill="#4ade80" />
-            <Cell fill="#f87171" />
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.color} />
+            ))}
           </Pie>
-          <Legend verticalAlign="bottom" height={36} />
         </PieChart>
       </div>
 
-      {/* Cards de Métricas */}
-      <div className="space-y-4">
-        {[
-          { label: "Positivos", value: positivos, color: "text-green-600" },
-          { label: "Negativos", value: negativos, color: "text-red-600" },
-        ].map(({ label, value, color }) => (
+      <div className="flex h-4 w-full rounded-lg overflow-hidden mt-4 shadow-inner">
+        {data.map((entry, index) => (
           <div
-            key={label}
-            className="bg-white p-4 rounded-lg shadow flex justify-between items-center"
-          >
-            <span className={`font-medium ${color}`}>{label}:</span>
-            <span className="text-2xl font-bold">{value}</span>
-          </div>
+            key={`bar-${index}`}
+            style={{
+              flex: entry.value,
+              backgroundColor: entry.color,
+            }}
+          />
         ))}
+      </div>
+
+      {/* Cards de Valores e Percentuais */}
+      <div className="grid grid-cols-2 gap-4 mt-4">
+        {data.map((entry, index) => {
+          const pct = ((entry.value / total) * 100).toFixed(2);
+          return (
+            <div
+              key={`card-${index}`}
+              className="bg-white p-4 rounded-lg shadow flex flex-col items-center"
+            >
+              <span
+                className="text-sm font-medium"
+                style={{ color: entry.color }}
+              >
+                {entry.name}
+              </span>
+              <span className="text-xl font-bold leading-none">
+                {entry.value}
+              </span>
+              <span
+                className="text-sm font-medium"
+                style={{ color: entry.color }}
+              >
+                {pct}%
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
