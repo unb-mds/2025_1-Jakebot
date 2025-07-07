@@ -4,20 +4,177 @@ title: Análise de Sentimentos – Brasil Participativo
 ---
 
 <style>
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-  .header { background-color: #28a745; padding: 30px 0; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-  .header h1 { color: white; margin: 0; font-size: 2.8em; }
-  .navbar { background-color: #ffffff; padding: 15px 0; text-align: center; border-bottom: 1px solid #ddd; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-  .navbar a { color: #28a745; text-decoration: none; padding: 10px 20px; margin: 0 10px; font-weight: bold; transition: color 0.3s ease; }
-  .navbar a:hover { color: #1e7e34; background-color: #e9ecef; border-radius: 5px; }
-  .content-section { background-color: white; margin: 20px auto; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 900px; line-height: 1.6; }
-  .content-section h2 { color: #28a745; border-bottom: 2px solid #28a745; padding-bottom: 10px; margin-bottom: 20px; font-size: 2em; }
-  .content-section ul { list-style-type: none; padding: 0; }
-  .content-section ul li { margin-bottom: 10px; padding-left: 25px; position: relative; }
-  .content-section ul li:before { content: '•'; color: #28a745; position: absolute; left: 0; }
-  .collaborator-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px; }
-  .collaborator-item { background-color: #f9f9f9; border: 1px solid #eee; border-radius: 5px; padding: 15px; text-align: center; width: 200px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-  .collaborator-item strong { color: #28a745; }
+  :root {
+    --primary-color: #28a745; /* Verde vibrante */
+    --secondary-color: #1e7e34; /* Verde mais escuro para hover */
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  .header {
+    background-color: var(--primary-color);
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-medium);
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    color: white;
+    margin: 0;
+    font-size: 3.2em;
+    text-shadow: 2px 2px 4px var(--shadow-medium);
+  }
+
+  .navbar {
+    background-color: var(--card-background);
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    margin-bottom: 30px;
+  }
+
+  .navbar a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 12px 25px;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+
+  .navbar a:hover {
+    color: white;
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+  }
+
+  .content-section {
+    background-color: var(--card-background);
+    margin: 20px auto;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-light);
+    max-width: 960px;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .content-section h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 2.4em;
+    text-align: center;
+  }
+
+  .content-section p {
+    margin-bottom: 15px;
+  }
+
+  .content-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .content-section ul li {
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .content-section ul li:before {
+    content: '✓'; /* Checkmark for list items */
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .collaborator-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+    justify-content: center;
+  }
+
+  .collaborator-item {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .collaborator-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+  }
+
+  .collaborator-item strong {
+    color: var(--primary-color);
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .prototype-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .prototype-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .prototype-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+  }
+
+  .prototype-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .prototype-item .caption {
+    padding: 15px;
+    background-color: var(--background-color);
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 
 <div class="header">
@@ -30,8 +187,8 @@ title: Análise de Sentimentos – Brasil Participativo
   <a href="#grupo">Grupo</a>
   <a href="#ambiente">Ambiente</a>
   <a href="#arquitetura">Arquitetura</a>
-  <a href="#documentacao">Documentacao</a>
-  <a href="#prototipo">Protótipo</a>
+  <a href="#documentacao">Documentação</a>
+  <a href="#prototipos">Protótipos</a>
   <a href="#colaboradores">Colaboradores</a>
 </div>
 
@@ -48,7 +205,13 @@ title: Análise de Sentimentos – Brasil Participativo
     <li><strong>Python + Django:</strong> Utilizado no backend para a construção de uma API robusta e para a orquestração da coleta de dados e do processamento de Machine Learning. Django oferece um framework seguro e com rápido desenvolvimento.</li>
     <li><strong>GraphQL:</strong> Interface de comunicação com a plataforma Brasil Participativo, permitindo uma coleta de dados eficiente e flexível, solicitando apenas o que é necessário.</li>
     <li><strong>Jekyll + GitHub Pages:</strong> Escolhido para o frontend e o blog do projeto, proporcionando um site estático rápido, seguro e de fácil manutenção, hospedado gratuitamente no GitHub Pages.</li>
-    <li><strong>Machine Learning (BERT/DistilBERT):</strong> Modelos de Processamento de Linguagem Natural (PLN) de última geração para a análise de sentimentos. A capacidade desses modelos em entender o contexto e as nuances da linguagem garante alta precisão na classificação dos comentários.</li>
+    <li><strong>Machine Learning (Análise de Sentimentos):</strong> O sistema emprega um modelo BERT multilíngue pré-treinado e ajustado (fine-tuned) para classificação de sentimento, capaz de processar texto em vários idiomas, incluindo Português. Especificamente, utilizamos a variante <code>nlptown/bert-base-multilingual-uncased-sentiment</code>, que atribui de 1 a 5 estrelas a cada comentário. No nosso fluxo, mapeamos:
+      <ul>
+        <li>1–2 estrelas &rarr; Comentário Negativo</li>
+        <li>4–5 estrelas &rarr; Comentário Positivo</li>
+        <li>Comentários de 3 estrelas são considerados neutros e não são exibidos.</li>
+      </ul>
+    </li>
   </ul>
 </div>
 
@@ -74,13 +237,42 @@ title: Análise de Sentimentos – Brasil Participativo
 
 <div class="content-section" id="documentacao">
   <h2>Documentação</h2>
-  <p>Toda a documentação técnica e de uso do projeto está disponível de forma clara e organizada em nosso <a href="https://github.com/unb-mds/2025_1-Jakebot" style="color: #28a745; text-decoration: none; font-weight: bold;">repositório no GitHub</a>. Isso inclui guias de instalação, uso, contribuição e detalhes sobre a arquitetura e as tecnologias empregadas, garantindo que qualquer interessado possa entender e colaborar com o projeto.</p>
+  <p>Toda a documentação técnica e de uso do projeto está disponível de forma clara e organizada em nosso <a href="https://github.com/unb-mds/2025_1-Jakebot" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">repositório no GitHub</a>. Isso inclui guias de instalação, uso, contribuição e detalhes sobre a arquitetura e as tecnologias empregadas, garantindo que qualquer interessado possa entender e colaborar com o projeto.</p>
 </div>
 
-<div class="content-section" id="prototipo">
-  <h2>Protótipo</h2>
-  <p>Para visualizar a experiência do usuário e o design da interface antes da implementação completa, desenvolvemos um protótipo interativo no Figma. Este protótipo serve como um guia visual para o desenvolvimento do frontend e pode ser acessado através do link:</p>
-  <p><a href="(link do Figma aqui)" style="color: #28a745; text-decoration: none; font-weight: bold;">(link do Figma aqui)</a></p>
+<div class="content-section" id="prototipos">
+  <h2>Protótipos</h2>
+  <p>Para visualizar a experiência do usuário e o design da interface antes da implementação completa, desenvolvemos protótipos interativos no Figma. Eles servem como um guia visual para o desenvolvimento do frontend.</p>
+
+  <h3>Protótipos de Alta Fidelidade</h3>
+  <p>Estes protótipos representam a interface final com maior precisão, incluindo detalhes de design, cores e interações. Eles são cruciais para validar a experiência do usuário e o fluxo de navegação.</p>
+  <div class="prototype-gallery">
+    <div class="prototype-item">
+      <img src="(link da imagem do protótipo de alta fidelidade 1 aqui)" alt="Protótipo de Alta Fidelidade 1">
+      <div class="caption">Dashboard Principal</div>
+    </div>
+    <div class="prototype-item">
+      <img src="(link da imagem do protótipo de alta fidelidade 2 aqui)" alt="Protótipo de Alta Fidelidade 2">
+      <div class="caption">Detalhes do Comentário</div>
+    </div>
+    <!-- Adicione mais itens de protótipo de alta fidelidade conforme necessário -->
+  </div>
+  <p>Acesse o protótipo de alta fidelidade no Figma: <a href="(link do Figma de alta fidelidade aqui)" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">(link do Figma de alta fidelidade aqui)</a></p>
+
+  <h3>Protótipos de Baixa Fidelidade</h3>
+  <p>Estes protótipos são esboços iniciais que focam na estrutura e funcionalidade básica, sem se preocupar com os detalhes visuais. São ideais para testar conceitos e fluxos de usuário rapidamente.</p>
+  <div class="prototype-gallery">
+    <div class="prototype-item">
+      <img src="(link da imagem do protótipo de baixa fidelidade 1 aqui)" alt="Protótipo de Baixa Fidelidade 1">
+      <div class="caption">Esboço da Página Inicial</div>
+    </div>
+    <div class="prototype-item">
+      <img src="(link da imagem do protótipo de baixa fidelidade 2 aqui)" alt="Protótipo de Baixa Fidelidade 2">
+      <div class="caption">Fluxo de Filtros</div>
+    </div>
+    <!-- Adicione mais itens de protótipo de baixa fidelidade conforme necessário -->
+  </div>
+  <p>Acesse o protótipo de baixa fidelidade no Figma: <a href="(link do Figma de baixa fidelidade aqui)" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">(link do Figma de baixa fidelidade aqui)</a></p>
 </div>
 
 <div class="content-section" id="colaboradores">
@@ -95,6 +287,8 @@ title: Análise de Sentimentos – Brasil Participativo
     <div class="collaborator-item"><strong>Artur Guanaes</strong><br>Frontend (Blog)</div>
   </div>
 </div>
+
+
 
 
 
