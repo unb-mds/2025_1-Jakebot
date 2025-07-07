@@ -1,10 +1,10 @@
-import "./index.css";
+import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { LogoBar } from "./components/LogoBar";
-import { NavBar } from "./components/NavBar";
-import {SearchBar} from "./components/SearchBar";
-import {SentimentStats} from "./components/SentimentStats"
+import { LogoBar } from "../../components/LogoBar";
+import { NavBar } from "../../components/NavBar";
+import {SearchBar} from "../../components/SearchBar";
+import {SentimentStats} from "../../components/SentimentStats"
 
 export default function App() {
   const [stats, setStats] = useState(null);
