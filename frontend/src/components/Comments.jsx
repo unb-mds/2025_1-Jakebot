@@ -36,7 +36,6 @@ export function Comments() {
   useEffect(() => {
     fetchComments(1);
     setPage(1);
-    // eslint-disable-next-line
   }, []);
 
   const handleShowMore = () => {

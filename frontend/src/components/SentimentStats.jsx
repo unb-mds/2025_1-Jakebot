@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell } from "recharts";
 
 
 export function SentimentStats({ positivos =0, negativos=0, neutros=0 }) {
-  // Inclui os neutros no gráfico
+ 
   const data = [
     { name: "Positivos", value: positivos, color: "#4ade80" },
     { name: "Negativos", value: negativos, color: "#f87171" },
