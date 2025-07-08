@@ -1,21 +1,35 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
 import { LogoBar } from "../../components/LogoBar";
 import { NavBar } from "../../components/NavBar";
 import { SentimentStats } from "../../components/SentimentStats";
 import { HelpPage } from "../../components/HelpPage";
 import { FilterProposalPage } from "../../components/ProposalFilter";
+import { Routes, Route } from "react-router-dom";
+import { SearchBar } from "../../components/SearchBar";
+
+function Dashboard({ fetchStats, error, stats }) {
+  return (
+    <>
+      <div className="max-w-7xl mx-auto px-4 mt-6">
+        <SearchBar onSearch={fetchStats} />
+      </div>
+      <main className="max-w-7xl mx-auto px-4 mt-8">
+        {error && <p className="text-red-600">{error}</p>}
+        {stats && <SentimentStats {...stats} />}
+      </main>
+    </>
+  );
+}
 
 export default function App() {
   const [stats, setStats] = useState(null);
-  const [comments, setComments] = useState([]);
   const [error, setError] = useState("");
+  const [comments, setComments] = useState([]);
 
-  const fetchComments = async (id) => {
+  const fetchStats = async (id) => {
     setError("");
     setStats(null);
-    setComments([]);
     try {
       const res = await axios.get(`/sentimentos/?id=${id}`);
       const coms = res.data.comentarios;
@@ -24,51 +38,33 @@ export default function App() {
       const negativos = coms.filter((c) => c.sentimento === "Negativo").length;
       setStats({ positivos, negativos });
     } catch (e) {
-      setError(e.response?.data?.detail || "Erro ao carregar comentários");
+      setError(e.response?.data?.detail || "Erro ao buscar dados");
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#F9F9F9]">
+    <>
       <LogoBar />
       <NavBar />
-
       <Routes>
+        <Route
+          path="/"
+          element={
+            <Dashboard fetchStats={fetchStats} error={error} stats={stats} />
+          }
+        />
         <Route
           path="/filter-proposta"
           element={
             <FilterProposalPage
-              fetchComments={fetchComments}
-              comments={comments.map((c) => ({
-                ...c,
-                autor: c.id_autor,
-                data: c.data_criacao,
-              }))}
+              fetchComments={fetchStats}
+              comments={comments}
               error={error}
             />
           }
         />
-
-        <Route
-          path="/"
-          element={
-            <>
-              <FilterProposalPage
-                fetchComments={fetchComments}
-                comments={comments.map((c) => ({
-                  ...c,
-                  autor: c.id_autor,
-                  data: c.data_criacao,
-                }))}
-                error={error}
-              />
-              {stats && <SentimentStats {...stats} />}
-            </>
-          }
-        />
-
         <Route path="/helppage" element={<HelpPage />} />
       </Routes>
-    </div>
+    </>
   );
 }
