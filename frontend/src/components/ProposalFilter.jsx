@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export function FilterProposalPage({ fetchComments, comments, error }) {
   const [propostaId, setPropostaId] = useState("");
 
-  // formata "2023-08-30T17:49:15.287019" → "2023-08-30 17:49:15"
+ 
   const formatDate = (iso) => (iso ? iso.slice(0, 19).replace("T", " ") : "");
 
   return (

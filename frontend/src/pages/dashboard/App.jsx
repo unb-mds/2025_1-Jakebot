@@ -37,7 +37,8 @@ export default function App() {
       setComments(coms);
       const positivos = coms.filter((c) => c.sentimento === "Positivo").length;
       const negativos = coms.filter((c) => c.sentimento === "Negativo").length;
-      setStats({ positivos, negativos });
+      const neutros = coms.filter((c) => c.sentimento === "Neutro").length;
+      setStats({ positivos, negativos, neutros });
     } catch (e) {
       setError(e.response?.data?.detail || "Erro ao buscar dados");
     }
