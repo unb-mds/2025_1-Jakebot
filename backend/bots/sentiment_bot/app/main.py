@@ -37,6 +37,13 @@ def debug():
     return {"total_comentarios": len(comentarios_raw)}
 
 
+def listar_propostas():
+    # extrai todos os IDs únicos de id_comentavel_raiz
+    ids_unicos = sorted({c["id_comentavel_raiz"] for c in comentarios_raw})
+    # monta lista de objetos com id e título (ou nome que preferir)
+    return [{"id": i, "titulo": f"Proposta {i}"} for i in ids_unicos]
+
+
 @app.get("/sentimentos/")
 def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
     # Filtra apenas comentários da proposta

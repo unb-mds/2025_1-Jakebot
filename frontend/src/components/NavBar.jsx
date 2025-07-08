@@ -24,10 +24,15 @@ export function NavBar() {
                 navigate("/helppage");
               }
 
-              if (title === "Dashboard" && subtitle === "Inicial") {
+              else if (title === "Dashboard" && subtitle === "Inicial") {
                 navigate("/");
               }
+              
+              else if (title === "Filtrar por" && subtitle === "Proposta") {
+                navigate("/filter-proposta");
+
             }
+          }
           }
           >
             <span className="flex items-center justify-center rounded-full border-2 border-navbar w-12 aspect-square mr-4">
