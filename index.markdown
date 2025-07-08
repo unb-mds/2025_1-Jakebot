@@ -237,118 +237,81 @@ title: Análise de Sentimentos – Brasil Participativo
 
 <div class="content-section" id="documentacao">
   <h2>Documentação</h2>
-  # Documentação do Projeto: Análise de Sentimentos - Brasil Participativo
+  <h3>1. Introdução</h3>
+  <h4>1.1 Objetivo</h4>
+  <p>Apresentar a ferramenta de Análise de Sentimentos - Brasil Participativo, desenvolvida na disciplina de Métodos e Desenvolvimento de Software (MDS) da Universidade de Brasília - FGA.</p>
+  <p>O sistema classifica sentimentos em comentários públicos da plataforma oficial, apoiando gestores e cidadãos com dados úteis.</p>
 
-## 1. Introdução
+  <h4>1.2 Escopo</h4>
+  <ul>
+    <li>Coletar comentários via API GraphQL</li>
+    <li>Classificá-los com modelo BERT</li>
+    <li>Apresentar resultados visualmente no blog</li>
+    <li>Oferecer filtros e busca por sentimentos, palavras-chave e período</li>
+  </ul>
 
-### 1.1 Objetivo
+  <h4>1.3 Tecnologias Utilizadas</h4>
+  <ul>
+    <li>Frontend: HTML, CSS, Jekyll</li>
+    <li>Backend: Python, Django</li>
+    <li>API: GraphQL</li>
+    <li>ML: BERT via HuggingFace</li>
+    <li>Prototipação: Figma</li>
+    <li>Versionamento: Git + GitHub</li>
+  </ul>
 
-Este documento tem como objetivo apresentar todos os detalhes do projeto "Análise de Sentimentos - Brasil Participativo", desenvolvido na disciplina de Métodos e Desenvolvimento de Software (MDS) do curso de Engenharia de Software da Universidade de Brasília (UnB) - FGA, durante o semestre 2025.1.
+  <h3>2. Descrição</h3>
+  <h4>2.1 Visão Geral</h4>
+  <p>O sistema é dividido em 3 camadas: coleta, análise e visualização. O blog permite navegação entre os módulos.</p>
 
-O projeto visa criar uma ferramenta capaz de coletar, analisar e visualizar os sentimentos expressos nos comentários da plataforma Brasil Participativo. Os sentimentos são classificados como **positivos**, **neutros** ou **negativos**, com o objetivo de auxiliar governos, pesquisadores e cidadãos na compreensão da opinião pública sobre políticas públicas.
+  <h4>2.2 Objetivos do Usuário</h4>
+  <ul>
+    <li>Identificar rapidamente a opinião pública</li>
+    <li>Explorar sentimentos por tema ou palavra-chave</li>
+    <li>Acessar visualizações gráficas e filtros</li>
+  </ul>
 
-### 1.2 Escopo
+  <h3>3. Requisitos Funcionais</h3>
+  <ul>
+    <li>Coletar e classificar comentários via GraphQL e ML</li>
+    <li>Interface amigável e responsiva com Jekyll</li>
+    <li>Buscar por termos, aplicar filtros por sentimentos</li>
+  </ul>
 
-* Coletar comentários da plataforma Brasil Participativo via API GraphQL;
-* Classificar os comentários usando um modelo de Machine Learning (ex: BERT);
-* Exibir os resultados de forma visual e interativa por meio de um blog estático em Jekyll, publicado no GitHub Pages;
-* Fornecer filtros por sentimento, palavras-chave e período de tempo (em desenvolvimento).
+  <h3>4. Requisitos Não-Funcionais</h3>
+  <ul>
+    <li><strong>Desempenho:</strong> rápida resposta</li>
+    <li><strong>Segurança:</strong> sem expor credenciais</li>
+    <li><strong>Compatibilidade:</strong> acessível por dispositivos variados</li>
+    <li><strong>Acessibilidade:</strong> contraste e legibilidade</li>
+    <li><strong>Manutenção:</strong> modular e bem organizado</li>
+  </ul>
 
-### 1.3 Tecnologias Utilizadas
+  <h3>5. Execução Local</h3>
+  <ul>
+    <li><strong>Rodar o blog:</strong>
+      <pre><code>sudo apt install ruby-full build-essential zlib1g-dev
+sudo gem install jekyll bundler
+git clone https://github.com/unb-mds/2025_1-Jakebot.git
+cd 2025_1-Jakebot
+bundle install
+bundle exec jekyll serve</code></pre>
+    </li>
+    <li><strong>Rodar o backend:</strong>
+      <pre><code>cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py runserver</code></pre>
+    </li>
+  </ul>
 
-* **Frontend**: HTML, CSS, Jekyll (GitHub Pages)
-* **Backend**: Python, Django
-* **Análise de Sentimentos**: BERT / DistilBERT (via HuggingFace Transformers)
-* **API**: GraphQL (Brasil Participativo)
-* **Prototipação**: Figma
-* **Controle de Versão**: Git + GitHub
-
----
-
-## 2. Descrição
-
-### 2.1 Visão Geral do Sistema
-
-O sistema é dividido em três grandes camadas:
-
-1. **Coleta de Dados**: via API GraphQL da Brasil Participativo;
-2. **Análise de Sentimentos**: com modelo pré-treinado BERT para classificação textual;
-3. **Visualização**: os resultados são apresentados em um blog responsivo com seções informativas, filtros e visualizações gráficas.
-
-### 2.2 Objetivos do Usuário
-
-* Visualizar rapidamente a opinião pública sobre temas importantes;
-* Obter insights através de filtros por palavras, temas ou datas;
-* Entender o volume de sentimentos positivos, negativos e neutros;
-* Ter uma interface amigável e responsiva.
-
----
-
-## 3. Requisitos Funcionais
-
-### 3.1 Coleta e Processamento
-
-* A ferramenta deve coletar comentários públicos da API GraphQL.
-* Deve processar o texto usando um modelo de classificação de sentimentos.
-* Os resultados devem ser armazenados ou diretamente exibidos.
-
-### 3.2 Visualização via Blog
-
-* Deve haver uma interface responsiva criada com Jekyll.
-* Os resultados da análise devem ser exibidos de forma clara.
-* Deve conter seções como: Projeto, Tecnologias, Arquitetura, Documentação, Protótipo, etc.
-
-### 3.3 Filtros e Busca
-
-* Implementar busca por palavras-chave (em desenvolvimento).
-* Permitir filtro por sentimentos (positivo e negativo).
-* Filtro temporal e por tema (em desenvolvimento).
-
----
-
-## 4. Requisitos Não-Funcionais
-
-* **Desempenho**: os resultados devem carregar rapidamente.
-* **Segurança**: API utilizada de forma segura, sem expor credenciais.
-* **Compatibilidade**: blog responsivo para diferentes dispositivos.
-* **Acessibilidade**: uso de cores contrastantes e legibilidade garantida.
-* **Manutenção**: código modular, com separação clara entre front e back.
-
-### 4.1 Usabilidade
-
-* Interface intuitiva e limpa;
-* Feedback visual nos elementos interativos;
-* Navegação simples e organizada
-
----
-
-## 5. Links Importantes
-
-* **Repositório GitHub**: [https://github.com/unb-mds/2025\_1-Jakebot](https://github.com/unb-mds/2025_1-Jakebot)
-* **Protótipo Figma**: [https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5\&t=dcpIxJR9aki5W7wJ-1](https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1)
-* **GitHub Pages**: [https://unb-mds.github.io/2025\_1-Jakebot/](https://unb-mds.github.io/2025_1-Jakebot/)
-
----
-
-## 6. Equipe
-
-| Nome            | Função                           |
-| --------------- | -------------------------------- |
-| Artur Fernandes | Frontend (Jekyll) + Documentação |
-| Eduardo Ribeiro | Bot e Backend                    |
-| Danilo Barros   | Blog e Documentação              |
-| Lucas Chaves    | Bot e Backend                    |
-| Davi Muniz      | Pipeline                         |
-| Artur Guanaes   | Design                           |
-
----
-
-## 7. Referências
-
-* [Jekyll - Site Oficial](https://jekyllrb.com/)
-* [GitHub Pages - Docs](https://pages.github.com/)
-* [HuggingFace Transformers](https://huggingface.co/transformers/)
-* [Brasil Participativo](https://brasilparticipativo.presidencia.gov.br)
+  <h3>6. Links Úteis</h3>
+  <ul>
+    <li><a href="https://github.com/unb-mds/2025_1-Jakebot">GitHub</a></li>
+    <li><a href="https://unb-mds.github.io/2025_1-Jakebot/">GitHub Pages</a></li>
+    <li><a href="https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/">Protótipo no Figma</a></li>
+  </ul>
 </div>
 
 <div class="content-section" id="prototipos">
