@@ -243,25 +243,8 @@ title: Análise de Sentimentos – Brasil Participativo
 <div class="content-section" id="prototipos">
   <h2>Protótipos</h2>
   <p>Para visualizar a experiência do usuário e o design da interface antes da implementação completa, desenvolvemos protótipos interativos no Figma. Eles servem como um guia visual para o desenvolvimento do frontend.</p>
-
-  <h3>Protótipo de Alta Fidelidade</h3>
-  <div class="prototype-gallery">
-    <div class="prototype-item">
-      <img src="https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1" alt="Protótipo de Alta Fidelidade">
-      <div class="caption">Protótipo de Alta Fidelidade</div>
-    </div>
-  </div>
-  <p>Acesse o protótipo de alta fidelidade no Figma: <a href="https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1</a></p>
-
-  <h3>Protótipo de Baixa Fidelidade</h3>
-  <div class="prototype-gallery">
-    <div class="prototype-item">
-      <img src="/home/ubuntu/low_fidelity_prototype.jpeg" alt="Protótipo de Baixa Fidelidade">
-      <div class="caption">Protótipo de Baixa Fidelidade</div>
-    </div>
-  </div>
-  <p>Acesse o protótipo de baixa fidelidade no Figma: <a href="(link do Figma de baixa fidelidade aqui)" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">(link do Figma de baixa fidelidade aqui)</a></p>
-</div>
+    
+  <p>Acesse os protótipo de alta e baixa fidelidade no Figma: <a href="https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1</a></p>
 
 <div class="content-section" id="colaboradores">
   <h2>Colaboradores</h2>
