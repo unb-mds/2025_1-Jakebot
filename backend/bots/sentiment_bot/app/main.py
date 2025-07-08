@@ -3,9 +3,20 @@ from transformers import pipeline
 import json
 import os
 
+from fastapi.middleware.cors import CORSMiddleware
+
+
 app = FastAPI()
 
-# Caminho para o JSON de comentários
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 dir_atual = os.path.dirname(os.path.abspath(__file__))
 json_path = os.path.normpath(os.path.join(
     dir_atual, "../comentarios_organizados.json"))
@@ -32,9 +43,35 @@ def debug_keys():
     return {"keys_do_primeiro_comentario": list(primeiro.keys())}
 
 
+@app.get("/comentarios/")
+def listar_comentarios():
+    comentarios_ordenados = sorted(
+        comentarios_raw,
+        key=lambda c: c.get("data_criacao", ""),
+        reverse=True
+    )
+    return [
+        {
+            "id": c.get("id"),
+            "id_autor": c.get("id_autor"),
+            "comentario": c.get("corpo", "").strip(),
+            "data_criacao": c.get("data_criacao"),
+        }
+        for c in comentarios_ordenados
+        if c.get("corpo", "").strip()
+    ]
+
+
 @app.get("/debug/")
 def debug():
     return {"total_comentarios": len(comentarios_raw)}
+
+
+def listar_propostas():
+    # extrai todos os IDs únicos de id_comentavel_raiz
+    ids_unicos = sorted({c["id_comentavel_raiz"] for c in comentarios_raw})
+    # monta lista de objetos com id e título (ou nome que preferir)
+    return [{"id": i, "titulo": f"Proposta {i}"} for i in ids_unicos]
 
 
 @app.get("/sentimentos/")
@@ -78,10 +115,13 @@ def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
 
         resultados.append({
             "id":         c.get("id"),
+            "id_autor":   c.get("id_autor"),
             "comentario": texto,
+            "data_criacao": c.get("data_criacao"),
             "stars":      n_stars,
             "score":      score,
             "sentimento": sentimento
+
         })
 
     if not resultados:
