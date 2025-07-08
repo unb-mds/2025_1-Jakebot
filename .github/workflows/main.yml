@@ -64,8 +64,7 @@ jobs:
   deploy_fastapi:
     runs-on: ubuntu-latest
     needs: test_fastapi
-    environment: production
-    
+ 
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
