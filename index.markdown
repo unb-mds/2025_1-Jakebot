@@ -318,41 +318,11 @@ O sistema é dividido em três grandes camadas:
 
 * Interface intuitiva e limpa;
 * Feedback visual nos elementos interativos;
-* Navegação simples e organizada.
+* Navegação simples e organizada
 
 ---
 
-## 5. Execução Local
-
-### 5.1 Rodando o Blog (Linux)
-
-```bash
-# Instalar Ruby, Jekyll e Bundler
-sudo apt install ruby-full build-essential zlib1g-dev
-sudo gem install jekyll bundler
-
-# Clonar o projeto
-git clone https://github.com/unb-mds/2025_1-Jakebot.git
-cd 2025_1-Jakebot
-
-# Instalar dependências e rodar localmente
-bundle install
-bundle exec jekyll serve
-```
-
-### 5.2 Rodando o Backend (exemplo)
-
-```bash
-cd backend
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python manage.py runserver
-```
-
----
-
-## 6. Links Importantes
+## 5. Links Importantes
 
 * **Repositório GitHub**: [https://github.com/unb-mds/2025\_1-Jakebot](https://github.com/unb-mds/2025_1-Jakebot)
 * **Protótipo Figma**: [https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5\&t=dcpIxJR9aki5W7wJ-1](https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1)
@@ -360,7 +330,7 @@ python manage.py runserver
 
 ---
 
-## 7. Equipe
+## 6. Equipe
 
 | Nome            | Função                           |
 | --------------- | -------------------------------- |
@@ -373,7 +343,7 @@ python manage.py runserver
 
 ---
 
-## 8. Referências
+## 7. Referências
 
 * [Jekyll - Site Oficial](https://jekyllrb.com/)
 * [GitHub Pages - Docs](https://pages.github.com/)
