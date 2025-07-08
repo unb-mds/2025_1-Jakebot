@@ -30,8 +30,11 @@ export function NavBar() {
               
               else if (title === "Filtrar por" && subtitle === "Proposta") {
                 navigate("/filter-proposta");
+              }
 
-            }
+              else if (title === "Comentários" && subtitle === "Recentes") {
+                navigate("/comments")
+              }
           }
           }
           >

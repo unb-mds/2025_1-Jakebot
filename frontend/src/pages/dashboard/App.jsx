@@ -4,6 +4,7 @@ import { LogoBar } from "../../components/LogoBar";
 import { NavBar } from "../../components/NavBar";
 import { SentimentStats } from "../../components/SentimentStats";
 import { HelpPage } from "../../components/HelpPage";
+import { Comments } from "../../components/Comments";
 import { FilterProposalPage } from "../../components/ProposalFilter";
 import { Routes, Route } from "react-router-dom";
 import { SearchBar } from "../../components/SearchBar";
@@ -64,6 +65,7 @@ export default function App() {
           }
         />
         <Route path="/helppage" element={<HelpPage />} />
+        <Route path="/comments" element={<Comments />} />
       </Routes>
     </>
   );
