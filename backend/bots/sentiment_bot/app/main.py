@@ -85,10 +85,13 @@ def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
 
         resultados.append({
             "id":         c.get("id"),
+            "id_autor":   c.get("id_autor"),
             "comentario": texto,
+            "data_criacao": c.get("data_criacao"),
             "stars":      n_stars,
             "score":      score,
             "sentimento": sentimento
+            
         })
 
     if not resultados:
