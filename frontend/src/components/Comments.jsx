@@ -1,12 +1,14 @@
-import React, {useState,useEffect} from "react";
-import { UserCircleIcon, FaceSmileIcon, FaceFrownIcon } from "@heroicons/react/24/outline";
+import React, { useState, useEffect } from "react";
+import {
+  UserCircleIcon,
+  FaceSmileIcon,
+  FaceFrownIcon,
+} from "@heroicons/react/24/outline";
 import axios from "axios";
-
-
 
 export function Comments() {
   const [comments, setComments] = useState([]);
-  const [loading,setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -27,8 +29,6 @@ export function Comments() {
     }
     fetchComments();
   }, []);
-
-
 
   return (
     <div className="bg-gray-50 py-12 px-4">
@@ -59,8 +59,10 @@ export function Comments() {
                     </span>
                     {comment.sentimento === "Positivo" ? (
                       <FaceSmileIcon className="h-6 w-6 text-green-500" />
-                    ) : (
+                    ) : comment.sentimento === "Negativo" ? (
                       <FaceFrownIcon className="h-6 w-6 text-red-500" />
+                    ) : (
+                      <FaceSmileIcon className="h-6 w-6 text-gray-400" />
                     )}
                   </div>
                   <p className="text-gray-400 text-sm">

@@ -30,10 +30,10 @@ except FileNotFoundError:
     print(f"ERROR: Arquivo não encontrado em {json_path}")
     comentarios_raw = []
 
-# Inicializa pipeline multilíngue (usa estrelas de 1 a 5)
+
 sentiment_model = pipeline(
     "sentiment-analysis",
-    model="nlptown/bert-base-multilingual-uncased-sentiment"
+    model="cardiffnlp/twitter-xlm-roberta-base-sentiment"
 )
 
 
@@ -95,39 +95,29 @@ def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
 
         analysis = sentiment_model(texto, truncation=True)
         pred = analysis[0]
-        label = pred.get("label", "")       # e.g. '1 star', '4 stars'
+        label = pred.get("label", "").lower()  
         score = round(pred.get("score", 0.0), 3)
 
-        # Extrai número de estrelas
-        try:
-            n_stars = int(label.split()[0])
-        except ValueError:
-            continue
-
-        # Classifica como Positivo (>3) ou Negativo (<3)
-        if n_stars > 3:
+        if label == "positive":
             sentimento = "Positivo"
-        elif n_stars < 3:
+        elif label == "negative":
             sentimento = "Negativo"
         else:
-            # pula neutros (3 estrelas)
-            continue
+            sentimento = "Neutro"
 
         resultados.append({
             "id":         c.get("id"),
             "id_autor":   c.get("id_autor"),
             "comentario": texto,
             "data_criacao": c.get("data_criacao"),
-            "stars":      n_stars,
             "score":      score,
             "sentimento": sentimento
-
         })
 
     if not resultados:
         raise HTTPException(
             status_code=404,
-            detail=f"Nenhum comentário Positivo ou Negativo para id {id_proposta}"
+            detail=f"Nenhum comentário para id {id_proposta}"
         )
 
     return {

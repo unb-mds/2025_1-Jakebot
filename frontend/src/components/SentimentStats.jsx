@@ -1,21 +1,16 @@
 import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 
-/**
- * Componente que exibe um gráfico tipo donut, barra de proporções
- * e cards com valores e percentuais para Positivos e Negativos.
- * Props:
- *  - positivos: número de comentários positivos
- *  - negativos: número de comentários negativos
- */
-export function SentimentStats({ positivos, negativos }) {
-  // Dados apenas de positivos e negativos com cores definidas
+
+export function SentimentStats({ positivos =0, negativos=0, neutros=0 }) {
+  // Inclui os neutros no gráfico
   const data = [
     { name: "Positivos", value: positivos, color: "#4ade80" },
     { name: "Negativos", value: negativos, color: "#f87171" },
+    { name: "Neutros", value: neutros, color: "#a3a3a3" }, 
   ];
 
-  const total = positivos + negativos || 1;
+  const total = Math.max(positivos + negativos + neutros, 1);
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow ">
@@ -50,8 +45,7 @@ export function SentimentStats({ positivos, negativos }) {
         ))}
       </div>
 
-      {/* Cards de Valores e Percentuais */}
-      <div className="grid grid-cols-2 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-4">
         {data.map((entry, index) => {
           const pct = ((entry.value / total) * 100).toFixed(2);
           return (
