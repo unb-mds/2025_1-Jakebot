@@ -209,7 +209,7 @@ title: Análise de Sentimentos – Brasil Participativo
       <ul>
         <li>1–2 estrelas &rarr; Comentário Negativo</li>
         <li>4–5 estrelas &rarr; Comentário Positivo</li>
-        <li>Comentários de 3 estrelas são considerados neutros e não são exibidos.</li>
+        <li>Comentários de 3 estrelas &rarr; Comentário Neutro (não exibidos).</li>
       </ul>
     </li>
   </ul>
@@ -244,33 +244,21 @@ title: Análise de Sentimentos – Brasil Participativo
   <h2>Protótipos</h2>
   <p>Para visualizar a experiência do usuário e o design da interface antes da implementação completa, desenvolvemos protótipos interativos no Figma. Eles servem como um guia visual para o desenvolvimento do frontend.</p>
 
-  <h3>Protótipos de Alta Fidelidade</h3>
-  <p>Estes protótipos representam a interface final com maior precisão, incluindo detalhes de design, cores e interações. Eles são cruciais para validar a experiência do usuário e o fluxo de navegação.</p>
+  <h3>Protótipo de Alta Fidelidade</h3>
   <div class="prototype-gallery">
     <div class="prototype-item">
-      <img src="(link da imagem do protótipo de alta fidelidade 1 aqui)" alt="Protótipo de Alta Fidelidade 1">
-      <div class="caption">Dashboard Principal</div>
+      <img src="https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1" alt="Protótipo de Alta Fidelidade">
+      <div class="caption">Protótipo de Alta Fidelidade</div>
     </div>
-    <div class="prototype-item">
-      <img src="(link da imagem do protótipo de alta fidelidade 2 aqui)" alt="Protótipo de Alta Fidelidade 2">
-      <div class="caption">Detalhes do Comentário</div>
-    </div>
-    <!-- Adicione mais itens de protótipo de alta fidelidade conforme necessário -->
   </div>
-  <p>Acesse o protótipo de alta fidelidade no Figma: <a href="(link do Figma de alta fidelidade aqui)" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">(link do Figma de alta fidelidade aqui)</a></p>
+  <p>Acesse o protótipo de alta fidelidade no Figma: <a href="https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">https://www.figma.com/design/R3l1XIVdDhJXnQedtGVrkX/Prot%C3%B3tipo-de-Alta-Fidelidade?node-id=70-5&t=dcpIxJR9aki5W7wJ-1</a></p>
 
-  <h3>Protótipos de Baixa Fidelidade</h3>
-  <p>Estes protótipos são esboços iniciais que focam na estrutura e funcionalidade básica, sem se preocupar com os detalhes visuais. São ideais para testar conceitos e fluxos de usuário rapidamente.</p>
+  <h3>Protótipo de Baixa Fidelidade</h3>
   <div class="prototype-gallery">
     <div class="prototype-item">
-      <img src="(link da imagem do protótipo de baixa fidelidade 1 aqui)" alt="Protótipo de Baixa Fidelidade 1">
-      <div class="caption">Esboço da Página Inicial</div>
+      <img src="/home/ubuntu/low_fidelity_prototype.jpeg" alt="Protótipo de Baixa Fidelidade">
+      <div class="caption">Protótipo de Baixa Fidelidade</div>
     </div>
-    <div class="prototype-item">
-      <img src="(link da imagem do protótipo de baixa fidelidade 2 aqui)" alt="Protótipo de Baixa Fidelidade 2">
-      <div class="caption">Fluxo de Filtros</div>
-    </div>
-    <!-- Adicione mais itens de protótipo de baixa fidelidade conforme necessário -->
   </div>
   <p>Acesse o protótipo de baixa fidelidade no Figma: <a href="(link do Figma de baixa fidelidade aqui)" style="color: var(--primary-color); text-decoration: none; font-weight: bold;">(link do Figma de baixa fidelidade aqui)</a></p>
 </div>
@@ -279,14 +267,21 @@ title: Análise de Sentimentos – Brasil Participativo
   <h2>Colaboradores</h2>
   <p>Agradecemos a dedicação e o trabalho árduo de cada membro da Squad 08, que tornam este projeto possível:</p>
   <div class="collaborator-list">
-    <div class="collaborator-item"><strong>Artur Alves Fernandes</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Eduardo Ribeiro</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Danilo Barros</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Lucas Chaves</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Davi Muniz</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Artur Guanaes</strong><br>Frontend (Blog)</div>
+    <div class="collaborator-item"><strong>Artur Alves Fernandes</strong><br>Frontend (Blog e documentação)</div>
+    <div class="collaborator-item"><strong>Eduardo Ribeiro</strong><br>Frontend (Bot e back)</div>
+    <div class="collaborator-item"><strong>Danilo Barros</strong><br>Frontend (Pipeline e documentação)</div>
+    <div class="collaborator-item"><strong>Lucas Chaves</strong><br>Frontend (Bot e back)</div>
+    <div class="collaborator-item"><strong>Davi Muniz</strong><br>Frontend (Pipeline)</div>
+    <div class="collaborator-item"><strong>Artur Guanaes</strong><br>Frontend (Design)</div>
   </div>
 </div>
+
+
+
+
+
+
+
 
 
 
