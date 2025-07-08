@@ -3,8 +3,24 @@ import React, { useState } from "react";
 import axios from "axios";
 import { LogoBar } from "../../components/LogoBar";
 import { NavBar } from "../../components/NavBar";
-import {SearchBar} from "../../components/SearchBar";
-import {SentimentStats} from "../../components/SentimentStats"
+import { SearchBar } from "../../components/SearchBar";
+import { SentimentStats } from "../../components/SentimentStats";
+import { HelpPage } from "../../components/HelpPage";
+import { Routes, Route } from "react-router-dom";
+
+function Dashboard({ fetchStats, error, stats }) {
+  return (
+    <>
+      <div className="max-w-7xl mx-auto px-4 mt-6">
+        <SearchBar onSearch={fetchStats} />
+      </div>
+      <main className="max-w-7xl mx-auto px-4 mt-8">
+        {error && <p className="text-red-600">{error}</p>}
+        {stats && <SentimentStats {...stats} />}
+      </main>
+    </>
+  );
+}
 
 export default function App() {
   const [stats, setStats] = useState(null);
@@ -32,13 +48,15 @@ export default function App() {
     <div className="min-h-screen bg-[#F9F9F9] text-gray-900">
       <LogoBar />
       <NavBar />
-      <div className="max-w-7xl mx-auto px-4 mt-6">
-        <SearchBar onSearch={fetchStats} />
-      </div>
-      <main className="max-w-7xl mx-auto px-4 mt-8">
-        {error && <p className="text-red-600">{error}</p>}
-        {stats && <SentimentStats {...stats} />}
-      </main>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Dashboard fetchStats={fetchStats} error={error} stats={stats} />
+          }
+        />
+        <Route path="/helppage" element={<HelpPage />} />
+      </Routes>
     </div>
   );
 }
