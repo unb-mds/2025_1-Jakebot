@@ -267,12 +267,12 @@ title: Análise de Sentimentos – Brasil Participativo
   <h2>Colaboradores</h2>
   <p>Agradecemos a dedicação e o trabalho árduo de cada membro da Squad 08, que tornam este projeto possível:</p>
   <div class="collaborator-list">
-    <div class="collaborator-item"><strong>Artur Alves Fernandes</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Eduardo Ribeiro</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Danilo Barros</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Lucas Chaves</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Davi Muniz</strong><br>Frontend (Blog)</div>
-    <div class="collaborator-item"><strong>Artur Guanaes</strong><br>Frontend (Blog)</div>
+    <div class="collaborator-item"><strong>Artur Alves Fernandes</strong><br> (Blog e documentação)</div>
+    <div class="collaborator-item"><strong>Eduardo Ribeiro</strong><br> (Bot e Backend)</div>
+    <div class="collaborator-item"><strong>Danilo Barros</strong><br> (Blog e Documentação)</div>
+    <div class="collaborator-item"><strong>Lucas Chaves</strong><br> (Bot e Backend)</div>
+    <div class="collaborator-item"><strong>Davi Muniz</strong><br> (Pipeline)</div>
+    <div class="collaborator-item"><strong>Artur Guanaes</strong><br> (Design)</div>
   </div>
 </div>
 
