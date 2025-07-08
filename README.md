@@ -9,7 +9,7 @@ Uma ferramenta desenvolvida para coletar, processar e visualizar os sentimentos 
 Este projeto visa:
 
 - Coletar comentários públicos via API da plataforma Brasil Participativo
-- Classificar os comentários em **positivo**, **neutro** ou **negativo**
+- Classificar os comentários em **positivo** ou **negativo**
 - Apresentar os dados de forma visual e acessível a diversos públicos
 - Apoiar a tomada de decisão de governos, pesquisadores e cidadãos
 
