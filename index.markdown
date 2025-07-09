@@ -328,7 +328,7 @@ python manage.py runserver</code></pre>
     <div class="collaborator-item"><strong>Eduardo Ribeiro</strong><br> (Bot e Backend)</div>
     <div class="collaborator-item"><strong>Danilo Barros</strong><br> (Blog e Documentação)</div>
     <div class="collaborator-item"><strong>Lucas Chaves</strong><br> (Bot e Backend)</div>
-    <div class="collaborator-item"><strong>Davi Muniz</strong><br> (Pipeline)</div>
+    <div class="collaborator-item"><strong>Davi Muniz</strong><br> (Pipeline e front)</div>
     <div class="collaborator-item"><strong>Artur Guanaes</strong><br> (Design)</div>
   </div>
 </div>
