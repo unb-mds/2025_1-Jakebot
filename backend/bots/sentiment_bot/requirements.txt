@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+textblob
+transformers
+torch
+tiktoken
+protobuf
+sentencepiece
