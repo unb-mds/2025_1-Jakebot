@@ -205,7 +205,7 @@ title: Análise de Sentimentos – Brasil Participativo
     <li><strong>Python + Django:</strong> Utilizado no backend para a construção de uma API robusta e para a orquestração da coleta de dados e do processamento de Machine Learning. Django oferece um framework seguro e com rápido desenvolvimento.</li>
     <li><strong>GraphQL:</strong> Interface de comunicação com a plataforma Brasil Participativo, permitindo uma coleta de dados eficiente e flexível, solicitando apenas o que é necessário.</li>
     <li><strong>Jekyll + GitHub Pages:</strong> Escolhido para o frontend e o blog do projeto, proporcionando um site estático rápido, seguro e de fácil manutenção, hospedado gratuitamente no GitHub Pages.</li>
-    <li><strong>Machine Learning (Análise de Sentimentos):</strong> O sistema emprega um modelo BERT multilíngue pré-treinado e ajustado (fine-tuned) para classificação de sentimento, capaz de processar texto em vários idiomas, incluindo Português. Especificamente, utilizamos a variante <code>nlptown/bert-base-multilingual-uncased-sentiment</code>, que atribui de 1 a 5 estrelas a cada comentário. No nosso fluxo, mapeamos:
+    <li><strong>Machine Learning (Análise de Sentimentos):</strong> O sistema emprega um modelo BERT multilíngue pré-treinado e ajustado (fine-tuned) para classificação de sentimento, capaz de processar texto em vários idiomas, incluindo Português. Especificamente, utilizamos a variante <code>cardiffnlp/twitter-xlm-roberta-base-sentiment</code>, que atribui de 1 a 5 estrelas a cada comentário. No nosso fluxo, mapeamos:
       <ul>
         <li>1–2 estrelas &rarr; Comentário Negativo</li>
         <li>4–5 estrelas &rarr; Comentário Positivo</li>
