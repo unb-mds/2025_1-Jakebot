@@ -36,6 +36,11 @@ sentiment_model = pipeline(
 )
 
 
+@app.get("/debug/ids/")
+def listar_ids():
+    return sorted({c["id_comentavel_raiz"] for c in comentarios_raw})
+
+
 @app.get("/debug/keys/")
 def debug_keys():
     primeiro = comentarios_raw[0] if comentarios_raw else {}
