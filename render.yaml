@@ -2,9 +2,13 @@ services:
   - type: web
     name: jakebot-api
     runtime: python
-    branch: master
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    pythonVersion: "3.9"  # Especifique uma versão
+    buildCommand: |
+      pip install -r requirements.txt
+      flake8 --ignore=E501,W503 .
+    startCommand: python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.9
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: ENVIRONMENT
+        value: "production"
