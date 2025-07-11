@@ -18,7 +18,7 @@ export function Comments() {
     setError("");
     try {
       const res = await axios.get(`http://localhost:8000/comentarios/?page=${pageNum}&limit=30`);
-      );
+      
       const novos = res.data.comentarios;
       if (pageNum === 1) {
         setComments(novos);
