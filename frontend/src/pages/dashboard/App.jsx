@@ -32,9 +32,7 @@ export default function App() {
     setError("");
     setStats(null);
     try {
-      const res = await axios.get(
-        `https://sentiment-api-fk8o.onrender.com/sentimentos/?id=${id}`
-      );
+      const res = await axios.get(`http://localhost:8000/sentimentos/?id=${id}`);
       const coms = res.data.comentarios;
       setComments(coms);
       const positivos = coms.filter((c) => c.sentimento === "Positivo").length;

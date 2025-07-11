@@ -96,11 +96,11 @@ def listar_propostas():
 
 
 @app.get("/sentimentos/")
-def analisar_sentimentos(id_proposta: str = Query(..., alias="id"), max_comentarios: int = 50):
+def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
     filtrados = [
         c for c in comentarios_raw
         if str(c.get("id_comentavel_raiz")) == id_proposta
-    ][:max_comentarios]
+    ]
     if not filtrados:
         raise HTTPException(
             status_code=404,
