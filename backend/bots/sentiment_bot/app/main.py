@@ -81,6 +81,8 @@ def listar_comentarios(page: int = Query(1, ge=1), limit: int = Query(30, ge=1, 
         "comentarios": comentarios,
         "total": len(comentarios_ordenados)
     }
+
+
 @app.get("/debug/")
 def debug():
     return {"total_comentarios": len(comentarios_raw)}
@@ -94,11 +96,11 @@ def listar_propostas():
 
 
 @app.get("/sentimentos/")
-def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
+def analisar_sentimentos(id_proposta: str = Query(..., alias="id"), max_comentarios: int = 50):
     filtrados = [
         c for c in comentarios_raw
         if str(c.get("id_comentavel_raiz")) == id_proposta
-    ]
+    ][:max_comentarios]
     if not filtrados:
         raise HTTPException(
             status_code=404,
@@ -113,7 +115,7 @@ def analisar_sentimentos(id_proposta: str = Query(..., alias="id")):
 
         analysis = sentiment_model(texto, truncation=True)
         pred = analysis[0]
-        label = pred.get("label", "").lower()  
+        label = pred.get("label", "").lower()
         score = round(pred.get("score", 0.0), 3)
 
         if label == "positive":
