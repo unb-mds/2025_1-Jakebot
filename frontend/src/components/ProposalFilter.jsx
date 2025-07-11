@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export function FilterProposalPage({ fetchComments, comments, error }) {
   const [propostaId, setPropostaId] = useState("");
 
+ 
   const formatDate = (iso) => (iso ? iso.slice(0, 19).replace("T", " ") : "");
 
   return (
@@ -32,8 +33,7 @@ export function FilterProposalPage({ fetchComments, comments, error }) {
           <li key={c.id} className="p-4 bg-white rounded-lg shadow">
             <p className="text-gray-800 mb-2">{c.comentario}</p>
             <div className="text-sm text-gray-500">
-              Id do Autor: <span className="font-medium">{c.id_autor}</span> •
-              Data:{" "}
+              Id do Autor: <span className="font-medium">{c.autor}</span> • Data:{" "}
               <span className="font-medium">{formatDate(c.data_criacao)}</span>
             </div>
           </li>
